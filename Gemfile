@@ -46,3 +46,6 @@ end
 
 # Use Haml for views
 gem 'haml'
+
+# Use Devise for authentication
+gem 'devise'
