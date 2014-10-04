@@ -133,6 +133,7 @@ DEPENDENCIES
   haml
   jbuilder (~> 1.2)
   jquery-rails
+  omniauth
   omniauth-raven (~> 0.1.7)
   rails (= 4.1.6)
   sass-rails (~> 4.0.0)

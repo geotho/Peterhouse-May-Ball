@@ -50,5 +50,8 @@ gem 'haml'
 # Use Devise for authentication
 gem 'devise'
 
-# Use Omniauth raven gem
+# Use Omniauth for authentication strategies
+gem 'omniauth'
+
+# Use Omniauth raven for CRSids
 gem 'omniauth-raven', '~> 0.1.7'
