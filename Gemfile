@@ -49,3 +49,6 @@ gem 'haml'
 
 # Use Devise for authentication
 gem 'devise'
+
+# Use Omniauth raven gem
+gem 'omniauth-raven', '~> 0.1.7'
