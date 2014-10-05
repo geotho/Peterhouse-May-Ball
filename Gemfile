@@ -45,7 +45,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 # Use Haml for views
-gem 'haml'
+gem 'haml-rails'
 
 # Use Devise for authentication
 gem 'devise'
