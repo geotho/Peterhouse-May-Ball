@@ -55,3 +55,6 @@ gem 'omniauth'
 
 # Use Omniauth raven for CRSids
 gem 'omniauth-raven', '~> 0.1.7'
+
+# Bootstrap for pretification for now
+gem "twitter-bootstrap-rails"
