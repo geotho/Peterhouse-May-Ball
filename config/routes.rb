@@ -4,10 +4,14 @@ MayBall::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'ticket#index'
-  # root 'devise/sessions#new'
   devise_scope :user do
-    root to: "devise/sessions#new"
+    authenticated :user do
+      root 'ticket#index', as: :authenticated_root
+    end
+
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
   end
 
   # Example of regular route:
