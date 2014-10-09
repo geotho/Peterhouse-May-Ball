@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:raven]
 
+  has_many :tickets
+  accepts_nested_attributes_for :tickets
+
   def self.from_omniauth(auth_hash)
     data = auth_hash.info
     user = User.where(:email => data["email"]).first
