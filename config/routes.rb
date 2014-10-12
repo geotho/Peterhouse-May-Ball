@@ -14,8 +14,7 @@ MayBall::Application.routes.draw do
     end
   end
 
-  resources :users
-
+  get 'home', to: 'users#home'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
