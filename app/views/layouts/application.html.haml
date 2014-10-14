@@ -30,7 +30,8 @@
           %ul.nav.navbar-nav.navbar-right
             - if current_user
               %li 
-                %a Currently logged in as #{current_user.email}
+                %p.navbar-text Currently logged in as #{current_user.email}
+              %li= link_to "Logout", destroy_user_session_path, :method => :delete
     .container
       .row
         .col-lg-12
