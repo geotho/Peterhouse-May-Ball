@@ -6,7 +6,7 @@ MayBall::Application.routes.draw do
   # You can have the root of your site routed with "root"
   devise_scope :user do
     authenticated :user do
-      root 'tickets#index', as: :authenticated_root
+      root 'users#home', as: :authenticated_root
     end
 
     unauthenticated do
