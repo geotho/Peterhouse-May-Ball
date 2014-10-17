@@ -1,0 +1,38 @@
+/ %div.page-header
+/   %h1 Sign In
+
+/ = link_to "Sign in with Raven", user_omniauth_authorize_path(:raven), :class => "btn"
+
+%div.modal.show
+  %div.modal-dialog
+    %div.modal-content
+      %div.modal-header
+        %h2.modal-title Sign in to Peterhouse 2015 Ticketing
+      %div.modal-body
+        = render "devise/shared/links"
+        %hr
+        = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-horizontal"}) do |f|
+          %div.well
+            %div.control-group.row
+              = f.label :email
+              %div.controls
+                = f.email_field :email, autofocus: true
+
+            %div.control-group.row
+              = f.label :password
+              %div.controls
+                = f.password_field :password, autocomplete: "off"
+
+          / - if devise_mapping.rememberable?
+          /   %div.form-group.row
+          /     = f.label :remember_me, :class => 'col-lg-2 control-label'
+          /     = f.check_box :remember_me
+
+          / %div.form-group.row
+          /   = f.submit "Log in", :class => "btn btn-primary col-lg-offset-2"
+
+          %div.modal-footer
+            = f.submit "Sign in", :class => "btn btn-primary"
+          
+
+ 
