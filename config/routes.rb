@@ -15,6 +15,7 @@ MayBall::Application.routes.draw do
   end
 
   get 'home', to: 'users#home'
+  get 'tickets', to: 'users#apply_for_tickets'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
