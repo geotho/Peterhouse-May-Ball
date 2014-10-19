@@ -58,3 +58,6 @@ gem 'omniauth-raven', '~> 0.1.7'
 
 # Bootstrap for pretification for now
 gem "twitter-bootstrap-rails"
+
+# Make forms easier
+gem 'simple_form'
