@@ -14,6 +14,8 @@ MayBall::Application.routes.draw do
     end
   end
 
+  resources :tickets
+
   get 'home', to: 'users#home'
   get 'tickets', to: 'users#apply_for_tickets'
   # Example of regular route:
