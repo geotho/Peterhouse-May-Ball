@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141004190534) do
+ActiveRecord::Schema.define(version: 20141021154842) do
 
   create_table "tickets", force: true do |t|
     t.string   "name"
-    t.integer  "type"
+    t.integer  "ticket_type"
     t.integer  "status"
     t.integer  "donation"
     t.integer  "user_id"

@@ -1,8 +1,8 @@
 = simple_form_for @ticket, :html => { :class => 'form-horizontal' } do |f|
   = f.input :name
   = error_span(@ticket[:name])
-  = f.input :type, :as => :select, :collection => Ticket.types.keys.to_a
-  = error_span(@ticket[:type])
+  = f.input :ticket_type, :as => :select, :collection => Ticket.types.keys.to_a
+  = error_span(@ticket[:ticket_type])
   = f.input :donation
   = error_span(@ticket[:donation])
   = f.input :user_id
