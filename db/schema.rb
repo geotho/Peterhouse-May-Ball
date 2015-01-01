@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219150123) do
+ActiveRecord::Schema.define(version: 20150101172457) do
+
+  create_table "ticket_types", force: true do |t|
+    t.string   "name"
+    t.decimal  "price",            precision: 6, scale: 2
+    t.integer  "max_number"
+    t.integer  "number_allocated"
+    t.boolean  "for_sale"
+    t.integer  "size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tickets", force: true do |t|
     t.string   "name"
