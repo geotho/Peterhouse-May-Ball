@@ -7,7 +7,5 @@
   = error_span(@ticket[:ticket_type])
   = f.input :donation
   = error_span(@ticket[:donation])
-  = f.input :user_id
-  = error_span(@ticket[:user_id])
   = f.button :submit, :class => 'btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), tickets_path, :class => 'btn btn-default'
