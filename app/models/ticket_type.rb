@@ -6,7 +6,7 @@ class TicketType < ActiveRecord::Base
 
   def self.for_sale
     TicketType.where(:for_sale => true)
-  end  
+  end
 
   private
     def assign_default_values
