@@ -13,5 +13,5 @@ class Ticket < ActiveRecord::Base
     :standard,
     :dining
     # todo: populate ticket types
-    ]
+  ]
 end
