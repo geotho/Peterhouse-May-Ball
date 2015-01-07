@@ -2,7 +2,7 @@
   %td= link_to ticket.id, ticket_path(ticket)
   %td= ticket.name
   %td= ticket.ticket_type.name
-  %td= ticket.status
+  %td= ticket.status.humanize
   %td= number_to_currency(ticket.donation, unit: "£")
   %td= ticket.created_at.to_date.to_s(:long_ordinal)
   %td
