@@ -5,5 +5,6 @@ class TicketType < ActiveRecord::Base
     def assign_default_values
       self.number_allocated = 0 if self.number_allocated.nil?
       self.size = 2 if self.size.nil?
+      self.for_sale = false if self.for_sale.nil?
     end
 end
