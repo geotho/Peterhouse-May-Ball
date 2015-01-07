@@ -9,10 +9,4 @@ class Ticket < ActiveRecord::Base
     :printed,
     :admitted
   ]
-
-  enum type: [
-    :standard,
-    :dining
-    # todo: populate ticket types
-  ]
 end
