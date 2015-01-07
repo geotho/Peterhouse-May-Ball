@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150107134504) do
+ActiveRecord::Schema.define(version: 20150107135444) do
 
   create_table "ticket_types", force: true do |t|
     t.string   "name"
@@ -32,8 +32,10 @@ ActiveRecord::Schema.define(version: 20150107134504) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "second_name"
+    t.integer  "ticket_type_id"
   end
 
+  add_index "tickets", ["ticket_type_id"], name: "index_tickets_on_ticket_type_id"
   add_index "tickets", ["user_id"], name: "index_tickets_on_user_id"
 
   create_table "users", force: true do |t|
