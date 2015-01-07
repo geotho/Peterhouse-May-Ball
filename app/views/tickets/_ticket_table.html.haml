@@ -1,0 +1,12 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Ticket.human_attribute_name(:id)
+      %th= Ticket.human_attribute_name(:name)
+      %th= Ticket.human_attribute_name(:ticket_type)
+      %th= Ticket.human_attribute_name(:status)
+      %th= Ticket.human_attribute_name(:donation)
+      %th= Ticket.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    = render partial: "tickets/ticket_row", collection: tickets, as: :ticket
