@@ -3,5 +3,8 @@
   %td= ticket.name
   %td= ticket.ticket_type.name
   %td= ticket.status
-  %td= ticket.donation
-  %td= ticket.created_at
+  %td= number_to_currency(ticket.donation, unit: "£")
+  %td= ticket.created_at.to_date.to_s(:long_ordinal)
+  %td
+    = link_to t('.edit', :default => t("helpers.links.edit")), edit_ticket_path(ticket), :class => 'btn btn-default btn-xs'
+    = link_to t('.destroy', :default => t("helpers.links.destroy")), ticket_path(ticket), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
