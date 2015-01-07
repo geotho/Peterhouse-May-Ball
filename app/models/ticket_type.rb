@@ -1,4 +1,6 @@
 class TicketType < ActiveRecord::Base
+  has_many :tickets
+
   after_initialize :assign_default_values
   validates :name, :price, :max_number, :number_allocated, :size, presence: true
   private

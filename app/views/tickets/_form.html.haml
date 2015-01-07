@@ -3,7 +3,7 @@
   = error_span(@ticket[:name])
   = f.input :second_name
   = error_span(@ticket[:second_name])
-  = f.input :ticket_type, :as => :select, :collection => Ticket.types.keys.to_a
+  = f.association :ticket_type, collection: TicketType.for_sale
   = error_span(@ticket[:ticket_type])
   = f.input :donation
   = error_span(@ticket[:donation])
