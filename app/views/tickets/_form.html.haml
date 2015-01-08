@@ -1,7 +1,7 @@
 = simple_form_for @ticket, :html => { :class => 'form-horizontal' } do |f|
-  = f.input :name
+  = f.input :name, label: "First guest's name:"
   = error_span(@ticket[:name])
-  = f.input :second_name
+  = f.input :second_name, label: "Second guest's name:"
   = error_span(@ticket[:second_name])
   = f.association :ticket_type, collection: TicketType.for_sale
   = error_span(@ticket[:ticket_type])
