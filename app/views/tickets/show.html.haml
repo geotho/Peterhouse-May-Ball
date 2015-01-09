@@ -9,11 +9,11 @@
 %p
   %strong= model_class.human_attribute_name(:type) + ':'
   %br
-  = @ticket.type
+  = @ticket.ticket_type.name
 %p
   %strong= model_class.human_attribute_name(:status) + ':'
   %br
-  = @ticket.status
+  = @ticket.status.humanize
 %p
   %strong= model_class.human_attribute_name(:donation) + ':'
   %br
