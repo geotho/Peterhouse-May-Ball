@@ -8,6 +8,22 @@ class TicketType < ActiveRecord::Base
     TicketType.where(:for_sale => true)
   end
 
+  def short_name
+    name = self.name
+    c = "champagne"
+    d = "dining"
+    s = "standard"
+    case
+      when name.include?(c)
+        c
+      when name.include?(d)
+        d
+      else
+        s
+    end
+
+  end
+
   private
     def assign_default_values
       self.number_allocated = 0 if self.number_allocated.nil?
