@@ -1,0 +1,7 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Charge.human_attribute_name(:description)
+      %th= Charge.human_attribute_name(:amount)
+  %tbody
+    = render partial: 'charges/charge_row', collection: charges, as: :charge
