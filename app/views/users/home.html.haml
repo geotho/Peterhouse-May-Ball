@@ -1,8 +1,13 @@
 %div.page-header
   %h1 Your account
+
+- unless current_user.charges.empty?
+  %h2 Your charges
+  = render 'charges/charge_table', charges: current_user.charges
+
 %h2 Your tickets
 - if current_user.tickets.empty?
-  %p 
+  %p
     You haven't yet applied for any tickets.
 - else
   = render 'tickets/ticket_table', tickets: current_user.tickets
