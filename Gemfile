@@ -61,3 +61,6 @@ gem "twitter-bootstrap-rails"
 
 # Make forms easier
 gem 'simple_form'
+
+# Administration using rails_admin
+gem 'rails_admin'
