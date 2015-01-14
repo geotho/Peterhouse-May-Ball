@@ -1,0 +1,7 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Payment.human_attribute_name(:method)
+      %th= Payment.human_attribute_name(:amount)
+  %tbody
+    = render partial: 'payments/payment_row', collection: payments, as: :payment
