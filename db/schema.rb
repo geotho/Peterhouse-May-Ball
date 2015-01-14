@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114163916) do
+ActiveRecord::Schema.define(version: 20150114183343) do
 
   create_table "charges", force: true do |t|
     t.integer  "user_id"
@@ -53,8 +53,10 @@ ActiveRecord::Schema.define(version: 20150114163916) do
     t.datetime "updated_at"
     t.string   "second_name"
     t.integer  "ticket_type_id"
+    t.integer  "charge_id"
   end
 
+  add_index "tickets", ["charge_id"], name: "index_tickets_on_charge_id"
   add_index "tickets", ["ticket_type_id"], name: "index_tickets_on_ticket_type_id"
   add_index "tickets", ["user_id"], name: "index_tickets_on_user_id"
 
