@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:raven]
 
   has_many :tickets
-  has_many :charges
   has_many :payments
+  has_many :charges, through: :tickets
   accepts_nested_attributes_for :tickets
 
   def self.from_omniauth(auth_hash)

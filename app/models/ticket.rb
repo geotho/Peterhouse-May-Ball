@@ -1,6 +1,7 @@
 class Ticket < ActiveRecord::Base
   belongs_to :user
   belongs_to :ticket_type
+  has_many :charges
 
   after_initialize :assign_default_values
 
