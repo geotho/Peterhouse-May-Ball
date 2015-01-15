@@ -1,14 +1,19 @@
 %div.page-header
   %h1 Your account
 
-- unless current_user.payments.empty?
-  %h2 Your payments
+%h2 Your payments
+- if current_user.payments.empty?
+  %p
+    We haven't yet received any payments from you.
+- else
   = render 'payments/payment_table', payments: current_user.payments
 
 - unless current_user.charges.empty?
+  %hr
   %h2 Your charges
   = render 'charges/charge_table', charges: current_user.charges
 
+%hr
 %h2 Your tickets
 - if current_user.tickets.empty?
   %p
