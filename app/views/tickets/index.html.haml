@@ -1,4 +1,0 @@
-.page-header
-  %h1 Tickets
-= render 'ticket_table', tickets: current_user.tickets
-= link_to t('.new', :default => t("helpers.links.new")), new_ticket_path, :class => 'btn btn-primary'
