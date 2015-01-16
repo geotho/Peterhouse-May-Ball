@@ -7,4 +7,4 @@
   %td= number_to_currency(ticket.donation, unit: "£")
   %td= ticket.created_at.to_date.to_s(:long_ordinal)
   %td
-    = link_to t('.edit', :default => t("helpers.links.edit")), edit_ticket_path(ticket), :class => 'btn btn-default btn-xs'
+    = link_to 'Change name', edit_ticket_path(ticket), :class => 'btn btn-default btn-xs'
