@@ -1,23 +1,22 @@
 %div.page-header
   %h1 Your account
-
-%h2 Your payments
-- if current_user.payments.empty?
-  %p
-    We haven't yet received any payments from you.
-- else
-  = render 'payments/payment_table', payments: current_user.payments
-
 - unless current_user.charges.empty?
+  %h2 Your payments
+  - if current_user.payments.empty?
+    %p
+      We haven't yet received any payments from you.
+  - else
+    = render 'payments/payment_table', payments: current_user.payments
+
   %hr
   %h2 Your charges
   = render 'charges/charge_table', charges: current_user.charges
+  %hr
 
-%hr
 %h2 Your tickets
 - if current_user.tickets.empty?
   %p
     You haven't yet applied for any tickets.
 - else
   = render 'tickets/ticket_table', tickets: current_user.tickets
-= link_to 'Apply for tickets', new_ticket_path, :class => 'btn btn-primary'
+= link_to 'Apply  for tickets', new_ticket_path, :class => 'btn btn-primary'
