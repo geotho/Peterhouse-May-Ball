@@ -1,4 +1,7 @@
-- model_class = Ticket
 .page-header
-  %h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
-= render :partial => "form"
+  %h1 Change name on ticket
+- if @ticket.nil?
+  %p Ticket not found.
+  = link_to 'Back', home_path, :class => 'btn btn-default'
+- else
+  = render :partial => 'form', :locals => { :new => false }
