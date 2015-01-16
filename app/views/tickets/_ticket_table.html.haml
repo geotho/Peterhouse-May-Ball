@@ -10,4 +10,4 @@
       %th= Ticket.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
-    = render partial: "tickets/ticket_row", collection: tickets, as: :ticket
+    = render partial: 'tickets/ticket_row', collection: tickets, as: :ticket
