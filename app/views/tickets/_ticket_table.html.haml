@@ -8,6 +8,6 @@
       %th= Ticket.human_attribute_name(:status)
       %th= Ticket.human_attribute_name(:donation)
       %th= Ticket.human_attribute_name(:created_at)
-      %th=t '.actions', :default => t("helpers.actions")
+      %th
   %tbody
     = render partial: 'tickets/ticket_row', collection: tickets, as: :ticket
