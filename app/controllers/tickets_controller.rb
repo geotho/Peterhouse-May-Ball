@@ -1,16 +1,6 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
-
-  # GET /tickets
-  # GET /tickets.json
-  def index
-    @tickets = current_user.tickets
-  end
-
-  # GET /tickets/1
-  # GET /tickets/1.json
-  def show
-  end
+  before_action :set_ticket, only: [:edit, :update]
+  before_action :authenticate_user!
 
   # GET /tickets/new
   def new
@@ -30,7 +20,7 @@ class TicketsController < ApplicationController
 
     respond_to do |format|
       if @ticket.save
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
+        format.html { redirect_to authenticated_root_url, notice: 'Ticket was successfully created.' }
         format.json { render action: 'show', status: :created, location: @ticket }
       else
         format.html { render action: 'new' }
@@ -44,7 +34,7 @@ class TicketsController < ApplicationController
   def update
     respond_to do |format|
       if @ticket.update(ticket_params)
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
+        format.html { redirect_to authenticated_root_url, notice: 'Ticket was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -53,20 +43,10 @@ class TicketsController < ApplicationController
     end
   end
 
-  # DELETE /tickets/1
-  # DELETE /tickets/1.json
-  def destroy
-    @ticket.destroy
-    respond_to do |format|
-      format.html { redirect_to tickets_url }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_ticket
-      @ticket = Ticket.find(params[:id])
+      @ticket = current_user.tickets.find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
