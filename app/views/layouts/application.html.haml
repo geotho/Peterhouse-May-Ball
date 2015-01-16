@@ -40,6 +40,7 @@
             - if current_user
               %li 
                 %p.navbar-text Currently logged in as #{current_user.email}
+              %li= link_to "Admin", rails_admin_path if current_user.admin?
               %li= link_to "Logout", destroy_user_session_path, :method => :delete
     .container
       .row
