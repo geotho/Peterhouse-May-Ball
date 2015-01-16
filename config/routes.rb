@@ -15,10 +15,9 @@ MayBall::Application.routes.draw do
     end
   end
 
-  resources :tickets
-
   get 'home', to: 'users#home'
-  get 'tickets', to: 'users#apply_for_tickets'
+  resources :tickets, path_names: { new: 'apply', edit: 'change_name' }, except: [:destroy, :show, :index]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
