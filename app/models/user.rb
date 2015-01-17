@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
   has_many :charges, through: :tickets
   accepts_nested_attributes_for :tickets
 
+  def has_tickets
+    return self.tickets.size > 0
+  end
+
   def self.from_omniauth(auth_hash)
     data = auth_hash.info
     user = User.where(:email => data["email"]).first
