@@ -9,6 +9,7 @@ class Ticket < ActiveRecord::Base
 
   enum status: [
     :applied,
+    :waiting_list,
     :not_allocated,
     :reserved,
     :printed,
