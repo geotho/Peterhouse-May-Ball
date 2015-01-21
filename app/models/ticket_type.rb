@@ -24,6 +24,10 @@ class TicketType < ActiveRecord::Base
 
   end
 
+  def self.group_available(groups)
+    TicketType.where(:ticket_group => groups, :for_sale => true)
+  end
+
   private
     def assign_default_values
       self.number_allocated = 0 if self.number_allocated.nil?
