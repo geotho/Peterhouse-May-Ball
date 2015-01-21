@@ -8,10 +8,42 @@ class User < ActiveRecord::Base
   has_many :tickets
   has_many :payments
   has_many :charges, through: :tickets
+  has_many :ticket_types, through: :tickets
   accepts_nested_attributes_for :tickets
 
-  def has_tickets
-    return self.tickets.size > 0
+  def can_get_more_tickets?
+    return self.tickets.size < self.max_tickets && self.available_ticket_groups.size > 0
+  end
+
+  def permitted_ticket_groups
+    if self.alumnus
+      return [2]
+    elsif self.petrean
+      return [1,3]
+    end
+    return [3]
+  end
+
+  def max_tickets
+    if self.alumnus
+      return 3
+    elsif self.petrean
+      return 3
+    end
+    return 1
+  end
+
+  def available_ticket_groups
+    return TicketType.group_available(self.permitted_ticket_groups - self.ticket_types.pluck(:ticket_group) - [nil])
+  end
+
+  def new_ticket_status
+    if self.petrean
+      if self.tickets.size <= 1
+        return :applied
+      end
+    end
+    return :waiting_list
   end
 
   def self.from_omniauth(auth_hash)
