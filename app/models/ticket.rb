@@ -1,7 +1,7 @@
 class Ticket < ActiveRecord::Base
   belongs_to :user
   belongs_to :ticket_type
-  has_many :charges
+  has_many :charges, dependent: :destroy
 
   validates :donation, numericality: { greater_than_or_equal_to: 0 }
 
