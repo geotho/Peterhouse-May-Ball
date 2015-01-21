@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114202115) do
+ActiveRecord::Schema.define(version: 20150121160620) do
 
   create_table "charges", force: true do |t|
     t.integer  "user_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150114202115) do
     t.integer  "size"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "ticket_group"
   end
 
   create_table "tickets", force: true do |t|
