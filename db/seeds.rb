@@ -31,4 +31,4 @@ TicketType.create([
     {name: 'Event staff single standard', price: '90', max_number: '10000', size: '1'},
     ])
 
-User.create({email: 'gt319@cam.ac.uk', admin: true, password: Devise.friendly_token})
+User.create({email: 'gt319@cam.ac.uk', admin: true, password: Devise.friendly_token, petrean: true})
