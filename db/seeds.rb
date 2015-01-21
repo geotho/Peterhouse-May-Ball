@@ -13,13 +13,13 @@ TicketType.create([
 
     {name: 'Past committee pair standard', price: '350.00', max_number: '15'},
 
-    {name: 'General release pair standard', price: '370.00', max_number: '0', ticket_group: '2'},
-    {name: 'General release pair champagne', price: '430.00', max_number: '0', ticket_group: '2'},
-    {name: 'General release pair dining', price: '510.00', max_number: '0', ticket_group: '2'},
+    {name: 'General release pair standard', price: '370.00', max_number: '0', ticket_group: '3'},
+    {name: 'General release pair champagne', price: '430.00', max_number: '0', ticket_group: '3'},
+    {name: 'General release pair dining', price: '510.00', max_number: '0', ticket_group: '3'},
 
-    {name: 'Alumni and staff pair standard', price: '370.00', max_number: '0', ticket_group: '3'},
-    {name: 'Alumni and staff pair champagne', price: '430.00', max_number: '0', ticket_group: '3'},
-    {name: 'Alumni and staff pair dining', price: '510.00', max_number: '0', ticket_group: '3'},
+    {name: 'Alumni and staff pair standard', price: '370.00', max_number: '0', ticket_group: '2'},
+    {name: 'Alumni and staff pair champagne', price: '430.00', max_number: '0', ticket_group: '2'},
+    {name: 'Alumni and staff pair dining', price: '510.00', max_number: '0', ticket_group: '2'},
     
     {name: 'Free single', price: '0', max_number: '43', size: '1'},
     {name: 'VIP single', price: '300', max_number: '100', size: '1'},
