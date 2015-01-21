@@ -5,19 +5,23 @@
         %h2.modal-title Sign in to Peterhouse 2015 Ticketing
       %div.modal-body
         = bootstrap_flash
+        %h3 Current Students
         = link_to "Sign in with Raven", user_omniauth_authorize_path(:raven), :class => "btn btn-primary"
         %hr
-        = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-horizontal"}) do |f|
-          %div.well
-            %div.control-group.row
-              = f.label :email
-              %div.controls
-                = f.email_field :email, autofocus: true
-
-            %div.control-group.row
-              = f.label :password
-              %div.controls
-                = f.password_field :password, autocomplete: "off"
-
-          %div.modal-footer
-            = f.submit "Sign in", :class => "btn btn-primary"
+        %h3 Alumni
+        %p Tickets will go on sale to alumni shortly
+        -#%hr
+        -#= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-horizontal"}) do |f|
+        -#  %div.well
+        -#    %div.control-group.row
+        -#      = f.label :email
+        -#      %div.controls
+        -#        = f.email_field :email, autofocus: true
+        -#
+        -#    %div.control-group.row
+        -#      = f.label :password
+        -#      %div.controls
+        -#        = f.password_field :password, autocomplete: "off"
+        -#
+        -#  %div.modal-footer
+        -#    = f.submit "Sign in", :class => "btn btn-primary"
