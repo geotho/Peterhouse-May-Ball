@@ -7,19 +7,19 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 TicketType.create([
-    {name: 'Petrean first pair standard', price: '350.00', max_number: '300'},
-    {name: 'Petrean first pair champagne', price: '400.00', max_number: '100'},
-    {name: 'Petrean first pair dining', price: '470.00', max_number: '19'},
+    {name: 'Petrean first pair standard', price: '350.00', max_number: '300', ticket_group: '1'},
+    {name: 'Petrean first pair champagne', price: '400.00', max_number: '100', ticket_group: '1'},
+    {name: 'Petrean first pair dining', price: '470.00', max_number: '19', ticket_group: '1'},
 
     {name: 'Past committee pair standard', price: '350.00', max_number: '15'},
 
-    {name: 'General release pair standard', price: '370.00', max_number: '0'},
-    {name: 'General release pair champagne', price: '430.00', max_number: '0'},
-    {name: 'General release pair dining', price: '510.00', max_number: '0'},
+    {name: 'General release pair standard', price: '370.00', max_number: '0', ticket_group: '2'},
+    {name: 'General release pair champagne', price: '430.00', max_number: '0', ticket_group: '2'},
+    {name: 'General release pair dining', price: '510.00', max_number: '0', ticket_group: '2'},
 
-    {name: 'Alumni and staff pair standard', price: '370.00', max_number: '0'},
-    {name: 'Alumni and staff pair champagne', price: '430.00', max_number: '0'},
-    {name: 'Alumni and staff pair dining', price: '510.00', max_number: '0'},
+    {name: 'Alumni and staff pair standard', price: '370.00', max_number: '0', ticket_group: '3'},
+    {name: 'Alumni and staff pair champagne', price: '430.00', max_number: '0', ticket_group: '3'},
+    {name: 'Alumni and staff pair dining', price: '510.00', max_number: '0', ticket_group: '3'},
     
     {name: 'Free single', price: '0', max_number: '43', size: '1'},
     {name: 'VIP single', price: '300', max_number: '100', size: '1'},
