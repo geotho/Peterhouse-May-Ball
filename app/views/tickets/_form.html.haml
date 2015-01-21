@@ -4,7 +4,7 @@
   = f.input :second_name, label: "Second guest's name:"
   = error_span(@ticket[:second_name])
   - if new
-    = f.association :ticket_type, collection: TicketType.for_sale
+    = f.association :ticket_type, collection: current_user.available_ticket_groups
     = error_span(@ticket[:ticket_type])
     = f.input :donation
     = error_span(@ticket[:donation])
