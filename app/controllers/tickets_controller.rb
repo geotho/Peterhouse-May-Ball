@@ -17,9 +17,13 @@ class TicketsController < ApplicationController
 
     @ticket = current_user.tickets.build(ticket_params)
     @ticket.status = current_user.new_ticket_status
+
+    notice = %{You've been placed on the waiting list for your ticket. 
+        We will contact you via email with the result of your ticket application}
     if @ticket.applied?
       @ticket.charges.build([{amount: @ticket.ticket_type.price, description: @ticket.ticket_type.name},
                              {amount: @ticket.donation, description: 'Ticket donation'}])
+      notice = 'Ticket successfully ordered. Please consult the Charges section.'
     end
 
     respond_to do |format|
