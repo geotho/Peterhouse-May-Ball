@@ -14,12 +14,9 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
-    if current_user.has_tickets
-      status = :waiting_list
-    end
 
     @ticket = current_user.tickets.build(ticket_params)
-    @ticket.status = status
+    @ticket.status = current_user.new_ticket_status
     if @ticket.applied?
       @ticket.charges.build([{amount: @ticket.ticket_type.price, description: @ticket.ticket_type.name},
                              {amount: @ticket.donation, description: 'Ticket donation'}])
