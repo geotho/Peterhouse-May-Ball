@@ -26,14 +26,11 @@ class TicketsController < ApplicationController
       notice = 'Ticket successfully ordered. Please consult the Charges section.'
     end
 
-    respond_to do |format|
-      if @ticket.save
-        format.html { redirect_to authenticated_root_url, notice: 'Ticket was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @ticket }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @ticket.errors, status: :unprocessable_entity }
-      end
+
+    if @ticket.save
+      redirect_to authenticated_root_url, notice: notice
+    else
+      render action: 'new'
     end
   end
 
