@@ -1,0 +1,15 @@
+.panel.panel-primary
+  .panel-heading
+    %h3.panel-title Payment information
+  .panel-body
+    %p Charges must be paid to the Peterhouse May Ball within seven days. You can pay by cheque or bank transfer.
+    %p Note that it is possible to make multiple payments provided they also use the payment information below.
+    %p <b>To pay by bank transfer</b>, please use the following bank details:
+    %ul
+      %li Payment reference: #{current_user.payment_reference}
+      %li Sort code: 00-00-00
+      %li Account number: 1234 5678
+    %p
+      <b>To pay by cheque</b>, please make cheques payable to 'Peterhouse May Ball'.
+      Cheques must be deposited in the May Ball Cheques Box in the Peterhouse Porters' Lodge.
+      Please write your payment reference clearly on the reverse of the cheque.
