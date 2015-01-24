@@ -46,6 +46,13 @@ class User < ActiveRecord::Base
     return :waiting_list
   end
 
+  def payment_reference
+    if self.alumnus
+      return self.email
+    end
+    return self.email[0 ... self.email.index('@')]
+  end
+
   def self.from_omniauth(auth_hash)
     data = auth_hash.info
     user = User.where(:email => data["email"]).first
