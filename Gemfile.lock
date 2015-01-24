@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/plataformatec/simple_form.git
+  revision: c679153ee99aefa39a7583564f2cd4bf9c0ca00b
+  branch: master
+  specs:
+    simple_form (3.1.0)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -142,9 +151,6 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    simple_form (3.0.2)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -190,7 +196,7 @@ DEPENDENCIES
   rails_admin
   sass-rails (~> 4.0.0)
   sdoc
-  simple_form
+  simple_form (~> 3.1.0.rc1)!
   sqlite3
   turbolinks
   twitter-bootstrap-rails

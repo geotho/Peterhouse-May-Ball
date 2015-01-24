@@ -67,7 +67,7 @@ gem 'omniauth-raven', '~> 0.1.7'
 gem "twitter-bootstrap-rails"
 
 # Make forms easier
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 'master'
 
 # Administration using rails_admin
 gem 'rails_admin'
