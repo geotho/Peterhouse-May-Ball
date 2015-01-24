@@ -1,4 +1,9 @@
-= simple_form_for @ticket do |f|
+= simple_form_for @ticket, html: { class: 'form-horizontal' },
+  wrapper: :horizontal_form,
+  wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes,
+  radio_buttons: :horizontal_radio_and_checkboxes,
+  file: :horizontal_file_input,
+  boolean: :horizontal_boolean } do |f|
   = f.input :name, label: "First guest's name:"
   = error_span(@ticket[:name])
   = f.input :second_name, label: "Second guest's name:"
