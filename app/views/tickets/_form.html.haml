@@ -12,7 +12,7 @@
     = f.association :ticket_type, collection: current_user.available_ticket_groups, as: :radio_buttons,
         :label_method => lambda { |item| "#{item.name} – #{number_to_currency(item.price, unit: '£')}" }
     = error_span(@ticket[:ticket_type])
-    = f.input :donation
+    = f.input :donation, as: :currency
     = error_span(@ticket[:donation])
   = f.button :submit, :class => 'btn-primary'
   = link_to 'Cancel', home_path, :class => 'btn btn-default'
