@@ -21,7 +21,6 @@ class TicketType < ActiveRecord::Base
       else
         s
     end
-
   end
 
   def self.group_available(groups)
