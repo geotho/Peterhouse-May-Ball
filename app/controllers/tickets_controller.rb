@@ -18,6 +18,8 @@ class TicketsController < ApplicationController
     @ticket = current_user.tickets.build(ticket_params)
     @ticket.status = current_user.new_ticket_status
 
+    return render action: 'new' unless @ticket.valid?
+
     notice = %{You've been placed on the waiting list for your ticket.
         We will contact you via email with the result of your ticket application}
     if @ticket.applied?
