@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150121215159) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "charges", force: true do |t|
     t.integer  "user_id"
     t.decimal  "amount",      precision: 6, scale: 2
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 20150121215159) do
     t.integer  "ticket_id"
   end
 
-  add_index "charges", ["ticket_id"], name: "index_charges_on_ticket_id"
-  add_index "charges", ["user_id"], name: "index_charges_on_user_id"
+  add_index "charges", ["ticket_id"], name: "index_charges_on_ticket_id", using: :btree
+  add_index "charges", ["user_id"], name: "index_charges_on_user_id", using: :btree
 
   create_table "payments", force: true do |t|
     t.integer  "user_id"
@@ -33,7 +36,7 @@ ActiveRecord::Schema.define(version: 20150121215159) do
     t.datetime "updated_at"
   end
 
-  add_index "payments", ["user_id"], name: "index_payments_on_user_id"
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id", using: :btree
 
   create_table "ticket_types", force: true do |t|
     t.string   "name"
@@ -58,8 +61,8 @@ ActiveRecord::Schema.define(version: 20150121215159) do
     t.integer  "ticket_type_id"
   end
 
-  add_index "tickets", ["ticket_type_id"], name: "index_tickets_on_ticket_type_id"
-  add_index "tickets", ["user_id"], name: "index_tickets_on_user_id"
+  add_index "tickets", ["ticket_type_id"], name: "index_tickets_on_ticket_type_id", using: :btree
+  add_index "tickets", ["user_id"], name: "index_tickets_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -81,7 +84,7 @@ ActiveRecord::Schema.define(version: 20150121215159) do
     t.boolean  "petrean"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
