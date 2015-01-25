@@ -17,3 +17,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore database seed data – push through pg:push instead
+/db/seed_data
