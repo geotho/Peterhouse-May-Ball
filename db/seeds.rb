@@ -20,7 +20,7 @@ TicketType.create([
     {name: 'Alumni and staff pair standard', price: '370.00', max_number: '0', ticket_group: '2'},
     {name: 'Alumni and staff pair champagne', price: '430.00', max_number: '0', ticket_group: '2'},
     {name: 'Alumni and staff pair dining', price: '510.00', max_number: '0', ticket_group: '2'},
-    
+
     {name: 'Free single', price: '0', max_number: '43', size: '1'},
     {name: 'VIP single', price: '300', max_number: '100', size: '1'},
 
@@ -32,3 +32,15 @@ TicketType.create([
     ])
 
 User.create({email: 'gt319@cam.ac.uk', admin: true, password: Devise.friendly_token, petrean: true})
+
+from_file = []
+begin
+    File.readlines('db/seed_data/jcr.csv').each do |line|
+        from_file << {email: line.strip + '@cam.ac.uk', petrean: true, password: Devise.friendly_token}
+    end
+    User.create(from_file)
+    puts 'Made all Petrean user accounts.'
+rescue IOError
+    # do nothing if file not there
+end
+
