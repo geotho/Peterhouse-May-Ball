@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 TicketType.create([
-    {name: 'Petrean first pair standard', price: '350.00', max_number: '300', ticket_group: '1'},
-    {name: 'Petrean first pair champagne', price: '400.00', max_number: '100', ticket_group: '1'},
-    {name: 'Petrean first pair dining', price: '470.00', max_number: '19', ticket_group: '1'},
+    {name: 'Petrean first pair standard', price: '350.00', max_number: '300', ticket_group: '1', for_sale: true},
+    {name: 'Petrean first pair champagne', price: '400.00', max_number: '100', ticket_group: '1', for_sale: true},
+    {name: 'Petrean first pair dining', price: '470.00', max_number: '19', ticket_group: '1', for_sale: true},
 
     {name: 'Past committee pair standard', price: '350.00', max_number: '15'},
 
