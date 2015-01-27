@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   has_many :payments
   has_many :charges, through: :tickets
   has_many :ticket_types, through: :tickets
-  accepts_nested_attributes_for :tickets
 
   def can_get_more_tickets?
     return self.tickets.size < self.max_tickets && self.available_ticket_groups.size > 0
