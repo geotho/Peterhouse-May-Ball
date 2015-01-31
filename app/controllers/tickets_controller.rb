@@ -28,8 +28,10 @@ class TicketsController < ApplicationController
       notice = 'Ticket successfully ordered. Please consult the Charges section.'
     end
 
-
     if @ticket.save
+      if @ticket.reserved?
+        UserMailer.reserved_ticket(current_user, @ticket).deliver_later
+      end
       redirect_to authenticated_root_url, notice: notice
     else
       render action: 'new'

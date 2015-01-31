@@ -4,7 +4,7 @@ class UserMailer < ActionMailer::Base
   def reserved_ticket(user, ticket)
     @user = user
     @ticket = ticket
-    mail(to: @user.email, subject: 'Peterhouse May Ball 2015 Ticket Confirmation').deliver_later
+    mail(to: @user.email, subject: 'Peterhouse May Ball 2015 Ticket Confirmation')
   end
 
 end
