@@ -8,6 +8,10 @@ class TicketType < ActiveRecord::Base
     TicketType.where(:for_sale => true)
   end
 
+  def sold_out
+    self.tickets.where(status: :reserved).count >= self.max_number
+  end
+
   def short_name
     name = self.name
     c = "champagne"
