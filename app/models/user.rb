@@ -18,6 +18,18 @@ class User < ActiveRecord::Base
     return self.tickets.size < self.max_tickets && self.available_ticket_groups.size > 0
   end
 
+  def payment_deadline
+    return self.charges.pluck(:created_at).last + 60*60*24*30
+  end
+
+  def total_owed
+    charges_total = self.charges.pluck(:amount).reduce(:+)
+    payments_total = self.payments.pluck(:amount).reduce(:+)
+    charges_total ||= 0
+    payments_total ||= 0
+    return charges_total - payments_total
+  end
+
   def permitted_ticket_groups
     if self.alumnus
       return [2]

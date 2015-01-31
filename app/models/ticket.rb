@@ -13,6 +13,10 @@ class Ticket < ActiveRecord::Base
     end
   end
 
+  def payment_deadline
+    return self.charges.pluck(:created_at).last + 60*60*24*30
+  end
+
   after_initialize :assign_default_values
 
   enum status: [
