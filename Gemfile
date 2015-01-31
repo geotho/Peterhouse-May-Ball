@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.6'
+gem 'rails','~> 4.2.0'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
@@ -55,7 +55,7 @@ end
 gem 'haml-rails'
 
 # Use Devise for authentication
-gem 'devise'
+gem 'devise', '~> 3.4.1'
 
 # Use Omniauth for authentication strategies
 gem 'omniauth'
@@ -64,7 +64,7 @@ gem 'omniauth'
 gem 'omniauth-raven', '~> 0.1.7'
 
 # Bootstrap for pretification for now
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'master'
 
 # Make forms easier
 gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 'master'
@@ -73,3 +73,5 @@ gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 
 gem 'rails_admin'
 
 gem 'appsignal'
+
+gem 'responders', '~> 2.1.0'
