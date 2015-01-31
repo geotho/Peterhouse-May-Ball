@@ -1,0 +1,21 @@
+Ticket on waiting list for Peterhouse May Ball 2015
+===================================================
+
+Your ticket has been added to the waiting list for the Peterhouse May Ball 2015.
+
+The details of your ticket are:
+  First guest: <%= @ticket.name %>
+  Second guest: <%= @ticket.second_name %>
+  Ticket type: <%= @ticket.ticket_type.name %>
+  Ticket price: <%= number_to_currency(@ticket.ticket_type.price, unit: '£') %>
+  Donation: <%= number_to_currency(@ticket.donation, unit: '£') %>
+
+Note that you do not have to do anything at this time.
+
+You will be contacted again by email if your ticket application is successful. 
+
+If you have any queries, please contact the Peterhouse May Ball 2015 Ticketing Officer, George Thomas at
+ticketing@peterhousemayball2015.com
+
+Many thanks,
+Peterhouse May Ball 2015 Committee

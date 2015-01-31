@@ -31,6 +31,8 @@ class TicketsController < ApplicationController
     if @ticket.save
       if @ticket.reserved?
         UserMailer.reserved_ticket(current_user, @ticket).deliver_later
+      elsif @ticket.waiting_list?
+        UserMailer.waiting_list_ticket(current_user, @ticket).deliver_later
       end
       redirect_to authenticated_root_url, notice: notice
     else
