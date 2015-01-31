@@ -22,7 +22,7 @@ class TicketsController < ApplicationController
 
     notice = %{You've been placed on the waiting list for your ticket.
         We will contact you via email with the result of your ticket application.}
-    if @ticket.applied?
+    if @ticket.reserved?
       @ticket.charges.build([{amount: @ticket.ticket_type.price, description: @ticket.ticket_type.name},
                              {amount: @ticket.donation, description: 'Ticket donation'}])
       notice = 'Ticket successfully ordered. Please consult the Charges section.'

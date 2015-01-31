@@ -20,17 +20,17 @@ class Ticket < ActiveRecord::Base
   after_initialize :assign_default_values
 
   enum status: [
-    :applied,
+    :reserved,
     :waiting_list,
     :not_allocated,
-    :reserved,
+    :confirmed,
     :printed,
     :admitted
   ]
 
   private
     def assign_default_values
-      self.status = :applied if self.status.nil?
+      self.status = :reserved if self.status.nil?
       self.donation = 0 if self.donation.nil?
     end
 end

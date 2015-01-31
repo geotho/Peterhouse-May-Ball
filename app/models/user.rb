@@ -55,7 +55,7 @@ class User < ActiveRecord::Base
   def new_ticket_status
     if self.petrean
       if self.tickets.size <= 1
-        return :applied
+        return :reserved
       end
     end
     return :waiting_list
