@@ -1,0 +1,33 @@
+Ticket reserved for Peterhouse May Ball 2015
+============================================
+
+You have successfully reserved a ticket for the Peterhouse May Ball 2015.
+
+The details of your ticket are:
+  First guest: <%= @ticket.name %>
+  Second guest: <%= @ticket.second_name %>
+  Ticket type: <%= @ticket.ticket_type.name %>
+  Ticket price: <%= number_to_currency(@ticket.ticket_type.price, unit: '£') %>
+  Donation: <%= number_to_currency(@ticket.donation, unit: '£') %>
+
+You currently owe the Peterhouse May Ball <%= number_to_currency(@user.total_owed, unit: '£') %>
+
+You must pay by <%= @ticket.payment_deadline.strftime('%A, %B %d') %> to confirm your ticket.
+Tickets not paid for before this deadline will be reissued to those on the waiting list.
+
+Your payment reference is: <%= @user.payment_reference %>
+
+To pay by cheque, please make cheques payable to 'Peterhouse May Ball'.
+Cheques must be deposited in the May Ball Cheques Box in the Peterhouse Porters' Lodge.
+Please write your payment reference, above, clearly on the reverse of the cheque.
+
+To pay by bank transfer, please use the following bank details:
+  Payment reference: <%= @user.payment_reference %>
+  Sort code: 20-17-35
+  Account number: 63710491
+
+If you have any queries, please contact the Peterhouse May Ball 2015 Ticketing Officer, George Thomas at
+<%= mail_to 'ticketing@peterhousemayball2015.com' %>
+
+Many thanks,
+Peterhouse May Ball 2015 Committee
