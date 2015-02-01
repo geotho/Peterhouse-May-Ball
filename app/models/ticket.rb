@@ -6,6 +6,13 @@ class Ticket < ActiveRecord::Base
   validates :user, :ticket_type, :donation, :name, :second_name, presence: true
   validates :donation, numericality: { greater_than_or_equal_to: 0 }
   validate :ticket_type_must_be_available
+  validate :ticket_type_must_not_be_sold_out
+
+  def ticket_type_must_not_be_sold_out
+    if self.ticket_type.sold_out
+      errors.add(:ticket_type, 'That particular ticket is now sold out. Please choose another.')
+    end
+  end
 
   def ticket_type_must_be_available
     unless self.user.available_ticket_groups.pluck(:id).include? ticket_type_id
