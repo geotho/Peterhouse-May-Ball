@@ -11,13 +11,13 @@ class Ticket < ActiveRecord::Base
   validate :second_guest_birthday_eighteen
 
   def first_guest_birthday_eighteen
-    if self.ticket.first_guest_date_of_birth > Date.new(2015,6,17) - 18.years
+    if self.first_guest_date_of_birth > Date.new(2015,6,17) - 18.years
       errors.add(:first_guest_date_of_birth, 'Guests must be at least 18 years old on the day of the ball.')
     end
   end
 
   def second_guest_birthday_eighteen
-    if self.ticket.second_guest_date_of_birth > Date.new(2015,6,17) - 18.years
+    if self.second_guest_date_of_birth > Date.new(2015,6,17) - 18.years
       errors.add(:second_guest_date_of_birth, 'Guests must be at least 18 years old on the day of the ball.')
     end
   end
