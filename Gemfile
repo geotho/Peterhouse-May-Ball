@@ -77,3 +77,7 @@ gem 'rails_admin'
 gem 'appsignal'
 
 gem 'responders', '~> 2.1.0'
+
+gem 'puma'
+
+gem 'rack-timeout'
