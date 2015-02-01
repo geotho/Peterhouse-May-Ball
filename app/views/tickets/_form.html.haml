@@ -4,9 +4,19 @@
   radio_buttons: :horizontal_radio_and_checkboxes,
   file: :horizontal_file_input,
   boolean: :horizontal_boolean } do |f|
-  = f.input :name, label: "First guest's name:"
+  = f.input :name, label: "First guest's name"
   = f.error_span :name
-  = f.input :second_name, label: "Second guest's name:"
+  = f.input :first_guest_date_of_birth, as: :date,
+      :input_html => { :style => "width: 25%; float: left;" },
+      start_year: Date.today.year - 100,
+      end_year: Date.today.year - 18
+  = f.error_span :first_guest_date_of_birth
+  = f.input :second_name, label: "Second guest's name"
+  = f.input :second_guest_date_of_birth, as: :date,
+      :input_html => { :style => "width: 25%; float: left;" },
+      start_year: Date.today.year - 100,
+      end_year: Date.today.year - 18
+  = f.error_span :second_guest_date_of_birth
   = f.error_span(:second_name)
   - if new
     = f.association :ticket_type, collection: current_user.available_ticket_groups, as: :radio_buttons,
