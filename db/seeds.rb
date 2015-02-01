@@ -39,7 +39,27 @@ begin
         from_file << {email: line.strip + '@cam.ac.uk', petrean: true, password: Devise.friendly_token}
     end
     User.create(from_file)
-    puts 'Made all Petrean user accounts.'
+    puts 'Made all JCR Petrean user accounts.'
+rescue IOError
+    # do nothing if file not there
+end
+
+from_file = []
+begin
+    File.readlines('db/seed_data/mcr.txt').each do |line|
+        line.strip!
+        if line.include? '@cam.ac.uk'
+            if line[/<.*@cam.ac.uk>/].nil?
+                s = line[/<?.*@cam.ac.uk>?/]
+            else
+                s = line[/<.*@cam.ac.uk>/][1..-2]
+            end
+            from_file << {email: s , petrean: true, password: Devise.friendly_token} unless s.nil?
+        end
+    end
+    User.create(from_file)
+    puts from_file
+    puts 'Made all MCR Petrean user accounts.'
 rescue IOError
     # do nothing if file not there
 end
