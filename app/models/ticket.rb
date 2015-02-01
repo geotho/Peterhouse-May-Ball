@@ -7,6 +7,20 @@ class Ticket < ActiveRecord::Base
   validates :donation, numericality: { greater_than_or_equal_to: 0 }
   validate :ticket_type_must_be_available
   validate :ticket_type_must_not_be_sold_out
+  validate :first_guest_birthday_eighteen
+  validate :second_guest_birthday_eighteen
+
+  def first_guest_birthday_eighteen
+    if self.ticket.first_guest_date_of_birth > Date.new(2015,6,17) - 18.years
+      errors.add(:first_guest_date_of_birth, 'Guests must be at least 18 years old on the day of the ball.')
+    end
+  end
+
+  def second_guest_birthday_eighteen
+    if self.ticket.second_guest_date_of_birth > Date.new(2015,6,17) - 18.years
+      errors.add(:second_guest_date_of_birth, 'Guests must be at least 18 years old on the day of the ball.')
+    end
+  end
 
   def ticket_type_must_not_be_sold_out
     if self.ticket_type.sold_out
