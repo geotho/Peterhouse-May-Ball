@@ -77,4 +77,16 @@ MayBall::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address              => ENV['MAIL_SERVER'],
+      :port                 => ENV['MAIL_PORT'],
+      :domain               => 'localhost:3000',
+      :user_name            => 'ticketing@peterhousemayball2015.com',
+      :password             => ENV['MAIL_PASSWORD'],
+      :authentication       => :login,
+      :enable_starttls_auto => true,
+      :tls => true
+  }
 end
