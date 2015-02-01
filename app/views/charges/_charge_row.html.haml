@@ -1,3 +1,4 @@
 %tr
+  %td= charge.created_at.to_date.to_s(:long_ordinal)
   %td= charge.description
   %td= number_to_currency(charge.amount, unit: '£')

@@ -1,3 +1,4 @@
 %tr
-  %td= payment.method
+  %td= payment.created_at.to_date.to_s(:long_ordinal)
+  %td= payment.method.humanize
   %td= number_to_currency(payment.amount, unit: '£')

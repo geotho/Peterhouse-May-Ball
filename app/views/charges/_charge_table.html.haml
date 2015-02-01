@@ -1,7 +1,8 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= Charge.human_attribute_name(:description)
-      %th= Charge.human_attribute_name(:amount)
+      %th.col-md-2 Date
+      %th.col-md-8= Charge.human_attribute_name(:description)
+      %th.col-md-2= Charge.human_attribute_name(:amount)
   %tbody
     = render partial: 'charges/charge_row', collection: charges, as: :charge

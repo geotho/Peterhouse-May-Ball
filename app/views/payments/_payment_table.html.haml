@@ -1,7 +1,8 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= Payment.human_attribute_name(:method)
-      %th= Payment.human_attribute_name(:amount)
+      %th.col-md-2 Date
+      %th.col-md-8= Payment.human_attribute_name(:method)
+      %th.col-md-2= Payment.human_attribute_name(:amount)
   %tbody
     = render partial: 'payments/payment_row', collection: payments, as: :payment
