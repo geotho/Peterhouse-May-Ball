@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150121215159) do
+ActiveRecord::Schema.define(version: 20150201194843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20150121215159) do
     t.datetime "updated_at"
     t.string   "second_name"
     t.integer  "ticket_type_id"
+    t.date     "first_guest_date_of_birth"
+    t.date     "second_guest_date_of_birth"
   end
 
   add_index "tickets", ["ticket_type_id"], name: "index_tickets_on_ticket_type_id", using: :btree
