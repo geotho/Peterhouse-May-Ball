@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150121215159) do
+ActiveRecord::Schema.define(version: 20150201193623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "charges", force: true do |t|
+  create_table "charges", force: :cascade do |t|
     t.integer  "user_id"
     t.decimal  "amount",      precision: 6, scale: 2
     t.string   "description"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20150121215159) do
   add_index "charges", ["ticket_id"], name: "index_charges_on_ticket_id", using: :btree
   add_index "charges", ["user_id"], name: "index_charges_on_user_id", using: :btree
 
-  create_table "payments", force: true do |t|
+  create_table "payments", force: :cascade do |t|
     t.integer  "user_id"
     t.decimal  "amount",     precision: 6, scale: 2
     t.integer  "method"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150121215159) do
 
   add_index "payments", ["user_id"], name: "index_payments_on_user_id", using: :btree
 
-  create_table "ticket_types", force: true do |t|
+  create_table "ticket_types", force: :cascade do |t|
     t.string   "name"
     t.decimal  "price",            precision: 6, scale: 2
     t.integer  "max_number"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20150121215159) do
     t.integer  "ticket_group"
   end
 
-  create_table "tickets", force: true do |t|
+  create_table "tickets", force: :cascade do |t|
     t.string   "name"
     t.integer  "status"
     t.integer  "donation"
@@ -64,13 +64,13 @@ ActiveRecord::Schema.define(version: 20150121215159) do
   add_index "tickets", ["ticket_type_id"], name: "index_tickets_on_ticket_type_id", using: :btree
   add_index "tickets", ["user_id"], name: "index_tickets_on_user_id", using: :btree
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                      default: "", null: false
+    t.string   "encrypted_password",         default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",              default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -82,6 +82,8 @@ ActiveRecord::Schema.define(version: 20150121215159) do
     t.boolean  "admin"
     t.boolean  "alumnus"
     t.boolean  "petrean"
+    t.date     "first_guest_date_of_birth"
+    t.date     "second_guest_date_of_birth"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
