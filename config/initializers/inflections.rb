@@ -17,4 +17,5 @@
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.human 'name', 'First guest'
   inflect.human 'second_name', 'Second guest'
+  inflect.irregular 'alumnus', 'alumni'
 end
