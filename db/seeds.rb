@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+require 'csv'
+
 TicketType.create([
     {name: 'Petrean first pair standard', price: '350.00', max_number: '300', ticket_group: '1', for_sale: true},
     {name: 'Petrean first pair champagne', price: '400.00', max_number: '100', ticket_group: '1', for_sale: true},
@@ -64,3 +66,13 @@ rescue IOError
     # do nothing if file not there
 end
 
+from_file = []
+begin
+    CSV.foreach('db/seed_data/alumni.csv', :headers => true) do |row|
+        from_file << row.to_hash
+    end
+    Alumnus.create(from_file)
+    puts 'Made all alumni records.'
+rescue IOError
+    # do nothing if file not there
+end
