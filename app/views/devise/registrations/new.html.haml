@@ -1,0 +1,18 @@
+
+.panel.panel-default.top10
+  .panel-heading
+    %h3= 'Peterhouse alumni registration'
+  .panel-body
+    = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: 'form' }) do |f|
+      %h4 Account information
+      = f.error_notification
+      = f.input :email, as: :email, label: 'Email address'
+      = f.input :password
+      = f.input :password_confirmation
+      %hr/
+      %h4 Alumni information
+      %p This information will be matched to the college's alumni records.
+      = f.input :first_name
+      = f.input :surname
+      = f.input :matric, label: 'Matriculation year', collection: 2012.downto(1922)
+      = f.submit 'Register', class: 'btn btn-primary'
