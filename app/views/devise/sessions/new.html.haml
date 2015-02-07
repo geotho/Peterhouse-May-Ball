@@ -1,15 +1,29 @@
-%div.modal.show
-  %div.modal-dialog
-    %div.modal-content
-      %div.modal-header
-        %h2.modal-title Sign in to Peterhouse 2015 Ticketing
-      %div.modal-body
-        = bootstrap_flash
-        %h3 Current Students
-        = link_to "Sign in with Raven", user_omniauth_authorize_path(:raven), :class => "btn btn-primary"
-        %hr
-        %h3 Alumni
-        %p Tickets will go on sale to alumni shortly
+= devise_error_messages!
+.panel.panel-default.top10
+  .panel-heading
+    %h3= 'Sign in to Peterhouse 2015 Ticketing'
+  .panel-body
+    = bootstrap_flash
+    %h4 Current students
+    %p
+      = link_to 'Sign in with Raven', user_omniauth_authorize_path(:raven), :class => 'btn btn-primary'
+    %hr/
+    %h4 Alumni
+    %p
+      = link_to 'Register', new_user_registration_path, :class => 'btn btn-primary'
+      = link_to 'Sign in', new_user_session_path, :class => 'btn btn-primary'
+-#%div.modal.show
+-#  %div.modal-dialog
+-#    %div.modal-content
+-#      %div.modal-header
+-#        %h2.modal-title Sign in to Peterhouse 2015 Ticketing
+-#      %div.modal-body
+-#        = bootstrap_flash
+-#        %h3 Current Students
+-#        = link_to "Sign in with Raven", user_omniauth_authorize_path(:raven), :class => "btn btn-primary"
+-#        %hr
+-#        %h3 Alumni
+-#        %p Tickets will go on sale to alumni shortly
         -#%hr
         -#= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-horizontal"}) do |f|
         -#  %div.well

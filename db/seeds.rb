@@ -69,8 +69,12 @@ end
 from_file = []
 begin
     CSV.foreach('db/seed_data/alumni.csv', :headers => true) do |row|
-        from_file << row.to_hash
+        r = row.to_hash
+        r['first_name'].downcase!
+        r['surname'].downcase!
+        from_file << r
     end
+    puts from_file
     Alumnus.create(from_file)
     puts 'Made all alumni records.'
 rescue IOError
