@@ -14,6 +14,6 @@
       %p This information will be matched to the college's alumni records.
       = f.input :first_name
       = f.input :surname
-      = f.input :matric, label: 'Matriculation year', collection: 2012.downto(1922)
+      = f.input :matric, label: 'Matriculation year', collection: 2013.downto(1922)
       = f.input :alumnus, :as => :hidden, :input_html => { :value => true }
       = f.submit 'Register', class: 'btn btn-primary'
