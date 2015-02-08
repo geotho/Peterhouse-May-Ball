@@ -10,8 +10,11 @@
     %hr/
     %h4 Alumni
     %p
-      = link_to 'Register', new_user_registration_path, :class => 'btn btn-primary'
-      = link_to 'Sign in', new_user_session_path, :class => 'btn btn-primary'
+      = link_to 'Create an account', new_user_registration_path, :class => 'btn btn-primary'
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = f.input :email, as: :email, label: 'Email address'
+      = f.input :password
+      = f.submit "Sign in", :class => "btn btn-primary"
 -#%div.modal.show
 -#  %div.modal-dialog
 -#    %div.modal-content
@@ -24,18 +27,3 @@
 -#        %hr
 -#        %h3 Alumni
 -#        %p Tickets will go on sale to alumni shortly
-        -#%hr
-        -#= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-horizontal"}) do |f|
-        -#  %div.well
-        -#    %div.control-group.row
-        -#      = f.label :email
-        -#      %div.controls
-        -#        = f.email_field :email, autofocus: true
-        -#
-        -#    %div.control-group.row
-        -#      = f.label :password
-        -#      %div.controls
-        -#        = f.password_field :password, autocomplete: "off"
-        -#
-        -#  %div.modal-footer
-        -#    = f.submit "Sign in", :class => "btn btn-primary"
