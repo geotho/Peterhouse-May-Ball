@@ -63,7 +63,10 @@ class User < ActiveRecord::Base
   end
 
   def available_ticket_groups
-    return TicketType.group_available(self.permitted_ticket_groups - self.ticket_types.pluck(:ticket_group) - [nil])
+    ticket_groups = self.permitted_ticket_groups
+    ticket_groups -= self.ticket_types.pluck(:ticket_group) unless self.alumnus?
+    ticket_groups -= [nil]
+    return TicketType.group_available(ticket_groups)
   end
 
   def new_ticket_status
