@@ -22,7 +22,7 @@
     = f.association :ticket_type, collection: current_user.available_ticket_groups, as: :radio_buttons,
         :label_method => lambda { |item| "#{item.name} – #{number_to_currency(item.price, unit: '£')}" }
     = f.error_span(:ticket_type)
-    = f.input :donation, as: :currency, label: 'Charitable Donation'
+    = f.input :donation, as: :currency, label: 'Charitable Donation', input_html: { value: '5' }
     .col-sm-3
     %p.col-sm-9 The Peterhouse May Ball 2015 will be supporting Médecins Sans Frontières, chosen by current Peterhouse students.
     = f.error_span(:donation)
