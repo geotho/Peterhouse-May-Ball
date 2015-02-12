@@ -17,7 +17,12 @@ class User < ActiveRecord::Base
   has_many :ticket_types, through: :tickets
 
   def is_alumnus_or_petrean
-    unless self.petrean? || Alumnus.where({first_name: self.first_name.downcase, surname: self.surname.downcase, matric: self.matric}).count == 1
+    is_alumnus = false
+    unless self.first_name.nil?
+      params = {first_name: self.first_name.downcase, surname: self.surname.downcase, matric: self.matric}
+      is_alumnus = Alumnus.where(params).count == 1
+    end
+    unless self.petrean? || is_alumnus
       errors.add(:first_name, 'You could not be verified by our alumni records. ' +
           'Please email ticketing@peterhousemayball2015.com if this is an error.')
     end
