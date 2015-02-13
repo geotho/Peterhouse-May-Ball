@@ -24,7 +24,7 @@ class Ticket < ActiveRecord::Base
 
   def ticket_type_must_not_be_sold_out
     if self.ticket_type.sold_out
-      errors.add(:ticket_type, 'That particular ticket is now sold out. Please choose another.')
+      errors.add(:ticket_type, 'That particular ticket type is now sold out. Please choose another.')
     end
   end
 

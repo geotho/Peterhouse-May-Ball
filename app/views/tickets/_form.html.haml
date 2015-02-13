@@ -5,26 +5,20 @@
   file: :horizontal_file_input,
   boolean: :horizontal_boolean } do |f|
   = f.input :name, label: "First guest's name"
-  = f.error_span :name
-  = f.input :first_guest_date_of_birth, as: :date,
-      :input_html => { :style => "width: 25%; float: left;" },
+  = f.input :first_guest_date_of_birth, as: :date, label: "First guest's date of birth",
+      input_html: { style: 'width: 25%; float: left;' },
       start_year: Date.today.year - 100,
       end_year: Date.today.year - 18
-  = f.error_span :first_guest_date_of_birth
   = f.input :second_name, label: "Second guest's name"
-  = f.input :second_guest_date_of_birth, as: :date,
-      :input_html => { :style => "width: 25%; float: left;" },
+  = f.input :second_guest_date_of_birth, as: :date, label: "Second guest's date of birth",
+      input_html: { style: 'width: 25%; float: left;' },
       start_year: Date.today.year - 100,
       end_year: Date.today.year - 18
-  = f.error_span :second_guest_date_of_birth
-  = f.error_span(:second_name)
   - if new
     = f.association :ticket_type, collection: current_user.available_ticket_groups, as: :radio_buttons,
         :label_method => lambda { |item| "#{item.name} – #{number_to_currency(item.price, unit: '£')}" }
-    = f.error_span(:ticket_type)
     = f.input :donation, as: :currency, label: 'Charitable Donation', input_html: { value: '5' }
     .col-sm-3
     %p.col-sm-9 The Peterhouse May Ball 2015 will be supporting Médecins Sans Frontières, chosen by current Peterhouse students.
-    = f.error_span(:donation)
   = f.button :submit, 'Apply for ticket', :class => 'btn-primary'
   = link_to 'Cancel', home_path, :class => 'btn btn-default'
