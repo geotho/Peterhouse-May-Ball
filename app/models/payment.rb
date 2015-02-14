@@ -3,6 +3,7 @@ class Payment < ActiveRecord::Base
 
   enum method: [
        :cheque,
-       :bank_transfer
+       :bank_transfer,
+       :discount
        ]
 end
