@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
       params = {first_name: self.first_name.downcase, surname: self.surname.downcase, matric: self.matric}
       is_alumnus = Alumnus.where(params).count == 1
     end
-    unless self.petrean? || is_alumnus
+    unless self.petrean? || self.medwards? || is_alumnus
       errors.add(:first_name, 'You could not be verified by our alumni records. ' +
           'Please email ticketing@peterhousemayball2015.com if this is an error.')
     end
@@ -74,7 +74,7 @@ class User < ActiveRecord::Base
   end
 
   def new_ticket_status
-    if self.petrean
+    if self.petrean || self.medwards
       if self.tickets.size <= 1
         return :reserved
       end
