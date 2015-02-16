@@ -38,6 +38,23 @@ class Ticket < ActiveRecord::Base
     return self.charges.pluck(:created_at).last + 60*60*24*30
   end
 
+  def move_from_waiting_list_to_reserved!
+    if self.waiting_list?
+      self.build_charges!
+      self.status = :reserved
+      if self.save!({validate: false})
+        UserMailer.waiting_list_approved(self.user, self).deliver_later
+      else
+        return self.errors
+      end
+    end
+  end
+
+  def build_charges!
+    self.charges.build([{amount: self.ticket_type.price, description: self.ticket_type.name},
+                        {amount: self.donation, description: 'Ticket donation'}])
+  end
+
   after_initialize :assign_default_values
 
   enum status: [
