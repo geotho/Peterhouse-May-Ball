@@ -13,4 +13,10 @@ class UserMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'Peterhouse May Ball 2015: Waiting List')
   end
 
+  def waiting_list_approved(user, ticket)
+    @user = user
+    @ticket = ticket
+    mail(to: @user.email, subject: 'Peterhouse May Ball 2015: Ticket Application Successful')
+  end
+
 end

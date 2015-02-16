@@ -1,0 +1,42 @@
+Waiting List Ticket Reserved - Peterhouse May Ball 2015
+=======================================================
+
+The Peterhouse May Ball Committee is pleased to inform you that your waiting list ticket application has been successful.
+
+The details of your ticket are:
+First guest: <%= @ticket.name %>
+Second guest: <%= @ticket.second_name %>
+Ticket type: <%= @ticket.ticket_type.name %>
+Ticket price: <%= number_to_currency(@ticket.ticket_type.price, unit: '£') %>
+Donation: <%= number_to_currency(@ticket.donation, unit: '£') %>
+
+Please note that you will be able to change the details of your guests through the online system in the coming weeks.
+These name changes will be free until the end of Lent Term, Friday 13th March.
+
+You currently owe the Peterhouse May Ball <%= number_to_currency(@user.total_owed, unit: '£') %>
+
+Note that payments may take a while to clear. If you do not receive a confirmation email of your payment within
+five working days, please email treasurer@peterhousemayball2015.com
+
+You must pay by <%= @ticket.payment_deadline.strftime('%A, %B %d') %> to confirm your ticket.
+Tickets not paid for before this deadline will be reissued to those on the waiting list.
+
+Your payment reference is: <%= @user.payment_reference %>
+
+To pay by bank transfer, please use the following bank details:
+Payment reference: <%= @user.payment_reference %>
+Payee: Peterhouse May Ball
+Sort code: 20-17-35
+Account number: 63710491
+
+<%- unless @user.alumnus? %>
+To pay by cheque, please make cheques payable to 'Peterhouse May Ball'.
+Cheques must be deposited in the May Ball Cheques Box in the Peterhouse Porters' Lodge.
+Please write your payment reference, above, clearly on the reverse of the cheque.
+
+<%-end %>
+If you have any queries, please contact the Peterhouse May Ball 2015 Ticketing Officer, George Thomas at
+ticketing@peterhousemayball2015.com
+
+Many thanks,
+Peterhouse May Ball 2015 Committee
