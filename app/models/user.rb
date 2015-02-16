@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:raven]
 
-  validate :is_alumnus_or_petrean
+  # validate :is_alumnus_or_petrean
 
   attr_accessor :first_name
   attr_accessor :surname
