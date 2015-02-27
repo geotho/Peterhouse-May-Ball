@@ -32,6 +32,12 @@ class User < ActiveRecord::Base
     self.payment_reference
   end
 
+  def committee?
+    return %w(bm424 en291 gh376 gk350 gt319 is351 jjb71 jk566 jnr26 jw813 mf465 oew23 smv25 wa239)
+        .map {|x| x + '@cam.ac.uk'}
+        .include?(self.email)
+  end
+
   def can_get_more_tickets?
     return self.tickets.size < self.max_tickets && self.available_ticket_groups.size > 0
   end
@@ -58,7 +64,9 @@ class User < ActiveRecord::Base
   end
 
   def max_tickets
-    if self.alumnus
+    if self.committee?
+      return 50
+    elsif self.alumnus
       return 3
     elsif self.petrean
       return 3
