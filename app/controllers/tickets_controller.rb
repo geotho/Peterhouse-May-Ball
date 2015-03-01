@@ -43,14 +43,10 @@ class TicketsController < ApplicationController
   # PATCH/PUT /tickets/1
   # PATCH/PUT /tickets/1.json
   def update
-    respond_to do |format|
-      if @ticket.update(ticket_params)
-        format.html { redirect_to authenticated_root_url, notice: 'Ticket was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @ticket.errors, status: :unprocessable_entity }
-      end
+    if @ticket.update(namechange_params)
+      redirect_to authenticated_root_url, notice: 'Ticket was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
@@ -64,5 +60,9 @@ class TicketsController < ApplicationController
     def ticket_params
       # params[:ticket]
       params.require(:ticket).permit(:name, :second_name, :donation, :ticket_type_id, :first_guest_date_of_birth, :second_guest_date_of_birth)
+    end
+
+    def namechange_params
+      params.require(:ticket).permit(:name, :second_name, :first_guest_date_of_birth, :second_guest_date_of_birth)
     end
 end

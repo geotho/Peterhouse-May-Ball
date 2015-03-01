@@ -6,7 +6,7 @@ class Ticket < ActiveRecord::Base
   validates :user, :ticket_type, :donation, :name, :second_name, presence: true
   validates :donation, numericality: { greater_than_or_equal_to: 0 }
   # validate :ticket_type_must_be_available
-  validate :ticket_type_must_not_be_sold_out
+  validate :ticket_type_must_not_be_sold_out, on: :create
   validate :first_guest_birthday_eighteen
   validate :second_guest_birthday_eighteen
 
