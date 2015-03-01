@@ -5,7 +5,7 @@ class Ticket < ActiveRecord::Base
 
   validates :user, :ticket_type, :donation, :name, :second_name, presence: true
   validates :donation, numericality: { greater_than_or_equal_to: 0 }
-  validate :ticket_type_must_be_available
+  # validate :ticket_type_must_be_available
   validate :ticket_type_must_not_be_sold_out
   validate :first_guest_birthday_eighteen
   validate :second_guest_birthday_eighteen
@@ -28,11 +28,11 @@ class Ticket < ActiveRecord::Base
     end
   end
 
-  def ticket_type_must_be_available
-    unless self.user.available_ticket_groups.pluck(:id).include? ticket_type_id
-      errors.add(:ticket_type, "The ticket type you have chosen is not available.")
-    end
-  end
+  # def ticket_type_must_be_available
+  #   unless self.user.available_ticket_groups.pluck(:id).include? ticket_type_id
+  #     errors.add(:ticket_type, "The ticket type you have chosen is not available.")
+  #   end
+  # end
 
   def payment_deadline
     return self.charges.pluck(:created_at).last + 60*60*24*30
