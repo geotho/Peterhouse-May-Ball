@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   end
 
   def committee?
-    return %w(bm424 en291 gh376 gk350 gt319 is351 jjb71 jk566 jnr26 jw813 mf465 oew23 smv25 wa239)
+    return %w(bm424 en291 gh376 gk350 gt319 is351 jjb71 jk566 jnr26 jw813 mf465 oew23 smv25 wa239 jmw241 djd46)
         .map {|x| x + '@cam.ac.uk'}
         .include?(self.email)
   end
