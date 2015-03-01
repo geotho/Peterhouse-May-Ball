@@ -67,7 +67,7 @@ class User < ActiveRecord::Base
     if self.committee?
       return 50
     elsif self.alumnus
-      return 3
+      return 6
     elsif self.petrean
       return 3
     end
