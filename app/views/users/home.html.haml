@@ -2,7 +2,11 @@
   %h1 Your account
 - unless current_user.charges.empty?
   %h2 Your payments
-  = render 'payments/payment_information'
+  - if current_user.total_owed > 0
+    = render 'payments/payment_amount'
+    = render 'payments/payment_information'
+  - else
+    %p Thank you for paying for your ticket(s) in full. We look forward to welcoming you and your guests at the Ball.
   - if current_user.payments.empty?
     %p
       We haven't yet received any payments from you.

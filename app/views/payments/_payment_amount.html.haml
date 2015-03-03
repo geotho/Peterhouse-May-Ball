@@ -1,0 +1,6 @@
+.panel.panel-warning
+  .panel-heading
+    %h3.panel-title Amount owed and payment deadline
+  .panel-body
+    %p You currently owe the Peterhouse May Ball <b>#{number_to_currency(current_user.total_owed, unit: '£')}</b>
+    %p You must pay in full by <b>#{current_user.payment_deadline.strftime('%A, %d %B')} </b> or you risk losing your ticket(s).
