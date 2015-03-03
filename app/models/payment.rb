@@ -9,8 +9,7 @@ class Payment < ActiveRecord::Base
        :discount
        ]
 
-  private
-    def email_confirmation
-      UserMailer.payment_confirmation(self.user, self).deliver_later
-    end
+  def email_confirmation
+    UserMailer.payment_confirmation(self.user, self).deliver_later
+  end
 end
