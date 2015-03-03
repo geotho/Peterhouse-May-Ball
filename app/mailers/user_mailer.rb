@@ -19,4 +19,12 @@ class UserMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'Peterhouse May Ball 2015: Ticket Application Successful')
   end
 
+  def payment_confirmation(user, payment)
+    @user = user
+    @payment = payment
+    treasurer = 'treasurer@peterhousemayball2015.com'
+    mail(to: @user.email, reply_to: treasurer, cc: treasurer,
+         subject: 'Peterhouse May Ball 2015: Payment Confirmation')
+  end
+
 end

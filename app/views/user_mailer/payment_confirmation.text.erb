@@ -1,0 +1,20 @@
+Payment Made to Peterhouse May Ball 2015
+========================================
+
+This email confirms we have successfully received your payment for the Peterhouse May Ball 2015.
+
+The details of your payment are:
+  Amount: <%= number_to_currency(@payment.amount, unit: '£') %>
+  Method: <%= @payment.method.humanize %>
+
+<%- if @user.total_owed > 0 %>
+The remainder left to pay is <%= number_to_currency(@user.total_owed, unit: '£') %>.
+<%- else %>
+You have now paid for your ticket(s) in full. We look forward to welcoming you and your guests at the Ball.
+<%- end %>
+
+If you have any queries, please contact the Peterhouse May Ball 2015 Treasurer, Ben Martineau at
+treasurer@peterhousemayball2015.com
+
+Many thanks,
+Peterhouse May Ball 2015 Committee
