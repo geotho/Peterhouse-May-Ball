@@ -55,12 +55,14 @@ class User < ActiveRecord::Base
   end
 
   def permitted_ticket_groups
+    groups = [3]
     if self.alumnus
-      return [2]
+      groups += [2]
     elsif self.petrean
-      return [1,3]
+      groups += [1]
     end
-    return [3]
+    groups += [4] if self.committee?
+    return groups
   end
 
   def max_tickets
@@ -76,7 +78,7 @@ class User < ActiveRecord::Base
 
   def available_ticket_groups
     ticket_groups = self.permitted_ticket_groups
-    ticket_groups -= self.ticket_types.pluck(:ticket_group) unless self.alumnus? || self.petrean?
+    ticket_groups -= self.ticket_types.pluck(:ticket_group) unless self.alumnus? || self.petrean? || self.committee?
     ticket_groups -= [nil]
     return TicketType.group_available(ticket_groups)
   end
