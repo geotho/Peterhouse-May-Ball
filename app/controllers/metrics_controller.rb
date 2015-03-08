@@ -1,6 +1,6 @@
 class MetricsController < ApplicationController
-  # before_action :is_admin
-  # before_action :authenticate_user!
+  before_action :is_admin
+  before_action :authenticate_user!
 
   def cashflow
     @ticket_types = TicketType.all.order(:name)
@@ -8,12 +8,12 @@ class MetricsController < ApplicationController
 
   def payments
   end
-  #
-  # private
-  #   def is_admin
-  #     unless current_user.try(:admin?)
-  #       flash[:error] = 'You are not an admin'
-  #       redirect_to '/'
-  #     end
-  #   end
+
+  private
+    def is_admin
+      unless current_user.try(:admin?)
+        flash[:error] = 'You are not an admin'
+        redirect_to '/'
+      end
+    end
 end
