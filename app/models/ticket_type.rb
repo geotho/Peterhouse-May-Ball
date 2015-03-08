@@ -12,6 +12,14 @@ class TicketType < ActiveRecord::Base
     self.tickets.where(status: Ticket.statuses[:reserved]).count >= self.max_number
   end
 
+  def revenue
+    self.price * self.tickets.count
+  end
+
+  def self.total_revenue
+    self.all.map { |x| x.revenue}.reduce(:+)
+  end
+
   def short_name
     name = self.name
     c = "champagne"

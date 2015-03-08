@@ -1,0 +1,19 @@
+%h1 Cash
+%table.table.table-striped
+  %thead
+    %tr
+      %th.col-md-4 Ticket type name
+      %th.col-md-1 Number sold
+      %th.col-md-1 Max number
+      %th.col-md-1 Left to sell
+      %th.col-md-1 Price
+      %th.col-md-1 Revenue
+  %tbody
+    = render partial: 'ticket_type_row', collection: @ticket_types, as: :ticket_type
+    %tr
+      %td
+      %td
+      %td
+      %td
+      %td
+      %td= number_to_currency(TicketType.total_revenue, unit: '£')
