@@ -7,6 +7,7 @@ class MetricsController < ApplicationController
   end
 
   def payments
+    @overdue_payments = User.users_with_overdue_payments
   end
 
   private

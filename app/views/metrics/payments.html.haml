@@ -1,0 +1,9 @@
+%h1 Payments
+%table.table.table-striped
+  %thead
+    %tr
+      %th.col-md-4 Email address
+      %th.col-md-1 Amount owed
+      %th.col-md-1 Payment deadline
+  %tbody
+    = render partial: 'user_payment_row', collection: @overdue_payments, as: :overdue_payment_user

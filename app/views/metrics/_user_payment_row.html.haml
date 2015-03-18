@@ -1,0 +1,4 @@
+%tr
+  %td= mail_to overdue_payment_user.email
+  %td= number_to_currency(overdue_payment_user.total_owed, unit: '£')
+  %td= overdue_payment_user.payment_deadline.strftime('%a, %B %d')

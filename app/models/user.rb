@@ -107,4 +107,13 @@ class User < ActiveRecord::Base
     end
     user
   end
+
+  def self.users_with_overdue_payments
+    users = []
+    User.find_each do |user|
+      users += [user] if user.total_owed > 0 and user.payment_deadline < 2.weeks.from_now
+    end
+
+    return users.sort_by {|user| user.payment_deadline}
+  end
 end
