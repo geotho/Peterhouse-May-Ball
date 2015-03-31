@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
   end
 
   def payment_deadline
-    return self.charges.pluck(:created_at).last + 60*60*24*30
+    return self.charges.pluck(:created_at).last + 60*60*24*7
   end
 
   def total_owed
