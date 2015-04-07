@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:raven]
 
-  # validate :is_alumnus_or_petrean
+  validate :is_alumnus_or_university
 
   attr_accessor :first_name
   attr_accessor :surname
@@ -16,16 +16,20 @@ class User < ActiveRecord::Base
   has_many :charges, through: :tickets
   has_many :ticket_types, through: :tickets
 
-  def is_alumnus_or_petrean
+  def is_alumnus_or_university
     is_alumnus = false
     unless self.first_name.nil?
       params = {first_name: self.first_name.downcase, surname: self.surname.downcase, matric: self.matric}
       is_alumnus = Alumnus.where(params).count == 1
     end
-    unless self.petrean? || self.medwards? || is_alumnus
+    unless self.university? || is_alumnus
       errors.add(:first_name, 'You could not be verified by our alumni records. ' +
           'Please email ticketing@peterhousemayball2015.com if this is an error.')
     end
+  end
+
+  def university?
+    return self.email.end_with? ('@cam.ac.uk')
   end
 
   def title
