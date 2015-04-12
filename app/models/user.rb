@@ -120,4 +120,9 @@ class User < ActiveRecord::Base
 
     return users.sort_by {|user| user.payment_deadline}
   end
+
+  def self.ticket_holders
+    self.includes(:tickets).where.not(tickets: {user_id: nil})
+  end
+
 end

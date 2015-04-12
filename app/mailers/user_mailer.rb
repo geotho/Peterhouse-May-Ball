@@ -27,4 +27,10 @@ class UserMailer < ActionMailer::Base
          subject: 'Peterhouse May Ball 2015: Payment Confirmation')
   end
 
+  def white_tie(user)
+    @user = user
+    sponsorship = 'sponsorship@peterhousemayball2015.com'
+    mail(to: @user.email, reply_to: sponsorship,
+        subject: 'Peterhouse May Ball 2015: White Tie Hire')
+  end
 end
