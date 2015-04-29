@@ -33,4 +33,11 @@ class UserMailer < ActionMailer::Base
     mail(to: @user.email, reply_to: sponsorship,
         subject: 'Peterhouse May Ball 2015: White Tie Hire')
   end
+
+  def headline_release(user)
+    @user = user
+    ticketing = 'ticketing@peterhousemayball2015.com'
+    mail(to: @user.email, reply_to: ticketing,
+         subject: 'Peterhouse May Ball 2015: dance stage headliner release')
+  end
 end
