@@ -75,9 +75,9 @@ class User < ActiveRecord::Base
     elsif self.alumnus
       return 6
     elsif self.petrean
-      return 5
+      return 20
     end
-    return 5
+    return 20
   end
 
   def available_ticket_groups
