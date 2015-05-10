@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: 'ticketing@peterhousemayball2015.com'
+  default from: 'Peterhouse May Ball <ticketing@peterhousemayball2015.com>'
 
   def reserved_ticket(user, ticket)
     @user = user
