@@ -24,8 +24,8 @@
     You haven't yet applied for any tickets.
 - else
   = render 'tickets/ticket_table', tickets: current_user.tickets
--if current_user.can_get_more_tickets?
-  -if current_user.tickets.empty?
-    = link_to 'Apply for tickets', new_ticket_path, :class => 'btn btn-primary'
-  -else
-    = link_to 'Apply for more tickets', new_ticket_path, :class => 'btn btn-primary'
+-#-if current_user.can_get_more_tickets?
+-#  -if current_user.tickets.empty?
+-#    = link_to 'Apply for tickets', new_ticket_path, :class => 'btn btn-primary'
+-#  -else
+-#    = link_to 'Apply for more tickets', new_ticket_path, :class => 'btn btn-primary'

@@ -5,5 +5,5 @@
   %td= ticket.status.humanize
   %td= number_to_currency(ticket.donation, unit: '£')
   %td= ticket.created_at.to_date.to_s(:long_ordinal)
-  %td
-    = link_to 'Change name', edit_ticket_path(ticket), :class => 'btn btn-primary btn-xs'
+  -#%td
+  -#  = link_to 'Change name', edit_ticket_path(ticket), :class => 'btn btn-primary btn-xs'
