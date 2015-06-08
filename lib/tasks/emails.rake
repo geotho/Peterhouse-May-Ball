@@ -28,4 +28,14 @@ namespace :emails do
     end
     puts "Sent #{counter} white tie info emails."
   end
+
+  desc 'Send ticket collection info to all ticket holders'
+  task send_ticket_collection_info: :environment do
+    counter = 0
+    User.ticket_holders.each do |user|
+      UserMailer.ticket_collection(user).deliver_later
+      counter += 1
+    end
+    puts "Sent #{counter} ticket collection info emails."
+  end
 end
