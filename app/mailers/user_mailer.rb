@@ -53,6 +53,13 @@ class UserMailer < ActionMailer::Base
     ticketing = 'Peterhouse May Ball <ticketing@peterhousemayball2015.com>'
     mail(to: @user.email, reply_to: ticketing,
          subject: 'Peterhouse May Ball 2015: Important Ticket Collection Information')
+  end
+
+  def ticket_collection_clarification(user)
+    @user = user
+    ticketing = 'Peterhouse May Ball <ticketing@peterhousemayball2015.com>'
+    mail(to: @user.email, reply_to: ticketing,
+         subject: 'Peterhouse May Ball 2015: Ticket Collection Clarification')
 
   end
 end

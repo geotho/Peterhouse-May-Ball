@@ -38,4 +38,14 @@ namespace :emails do
     end
     puts "Sent #{counter} ticket collection info emails."
   end
+
+  desc 'Send ticket collection clarification to all ticket holders'
+  task send_ticket_collection_clarification: :environment do
+    counter = 0
+    User.ticket_holders.each do |user|
+      UserMailer.ticket_collection_clarification(user).deliver_later
+      counter += 1
+    end
+    puts "Sent #{counter} ticket collection clarification emails."
+  end
 end
